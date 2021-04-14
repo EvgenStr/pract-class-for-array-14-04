@@ -92,7 +92,7 @@ function getStudentInfo(student) {
 // 3.4 Вывести индексы нулевых элементов (элемент равен нулю)
 // 3.5 Подсчитать количество нулевых элементов
 
-function initArrayInt(amount) {
+function initArrayIntRandom(amount) {
   const result = [];
   for (let i = 0; i < amount; i++) {
     result.push(getRandomInt(0, 5));
@@ -100,7 +100,7 @@ function initArrayInt(amount) {
   return result;
 }
 
-function getRandomIntArray(min, max) {
+function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -126,7 +126,7 @@ function getZeroElems(array) {
   return { zeroIndex: result, zeroCount: result.length };
 }
 
-const arr = initArrayIntArray(25);
+const arr = initArrayIntRandom(25);
 // 4 Создать классы:
 // - Книга (автор, название, год издания, издательство)
 // - Электронная версия книги (автор, название, год издания, издательство, формат, электронный номер)
@@ -178,7 +178,7 @@ class EBook extends Book {
     this.isbn = isbn;
   }
   set format(value) {
-    if (typeof value !== "number") throw new TypeError();
+    if (typeof value !== "string") throw new TypeError();
     this._format = value;
   }
   get format() {
@@ -192,6 +192,10 @@ class EBook extends Book {
     return this._isbn;
   }
 }
+
+const paper = new Book("john", "eloquent javascript", 2019, "publish");
+const eBook = new EBook(  "john",  "eloquent javascript",  2019,  "publish",  "pdf",  2020);
+
 // 5 Требуется написать функцию, выводящую в консоль числа от 1 до n, где n — это целое число, которая функция принимает в качестве параметра, с такими условиями:
 // вывод fizzbuzz вместо чисел, кратных как 3, так и 5.
 // вывод fizz вместо чисел, кратных 3;
