@@ -92,7 +92,6 @@ function getStudentInfo(student) {
 // 3.4 Вывести индексы нулевых элементов (элемент равен нулю)
 // 3.5 Подсчитать количество нулевых элементов
 
-const numArr = [];
 function initArrayInt(amount) {
   const result = [];
   for (let i = 0; i < amount; i++) {
@@ -101,7 +100,7 @@ function initArrayInt(amount) {
   return result;
 }
 
-function getRandomInt(min, max) {
+function getRandomIntArray(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -127,7 +126,7 @@ function getZeroElems(array) {
   return { zeroIndex: result, zeroCount: result.length };
 }
 
-const arr = initArrayInt(25);
+const arr = initArrayIntArray(25);
 // 4 Создать классы:
 // - Книга (автор, название, год издания, издательство)
 // - Электронная версия книги (автор, название, год издания, издательство, формат, электронный номер)
@@ -173,10 +172,10 @@ class Book {
   }
 }
 class EBook extends Book {
-  constructor(author, title, year, publishingOffice, format, iban) {
+  constructor(author, title, year, publishingOffice, format, isbn) {
     super(author, title, year, publishingOffice);
     this.format = format;
-    this.iban = iban;
+    this.isbn = isbn;
   }
   set format(value) {
     if (typeof value !== "number") throw new TypeError();
@@ -185,12 +184,12 @@ class EBook extends Book {
   get format() {
     return this._format;
   }
-  set iban(value) {
+  set isbn(value) {
     if (typeof value !== "number") throw new TypeError();
-    this._iban = value;
+    this._isbn = value;
   }
-  get iban() {
-    return this._iban;
+  get isbn() {
+    return this._isbn;
   }
 }
 // 5 Требуется написать функцию, выводящую в консоль числа от 1 до n, где n — это целое число, которая функция принимает в качестве параметра, с такими условиями:
