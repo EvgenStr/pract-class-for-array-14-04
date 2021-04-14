@@ -50,9 +50,6 @@ class Student {
     if (!newFaculty instanceof University) throw new Error();
     this._faculty = newFaculty;
   }
-  // get studentInfo() {
-  //   return Object.entries(this);
-  // }
   _validateString(value) {
     if (typeof value !== "string") throw new TypeError();
   }
@@ -100,7 +97,6 @@ function initArrayIntRandom(amount, minValue, maxValue) {
   return result;
 }
 /**
- *
  * @param {number} min
  * @param {number} max
  * @returns
@@ -111,7 +107,6 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 /**
- *
  * @param {array} array
  */
 function getEvenIndexElement(array) {
@@ -235,3 +230,4 @@ function fizzBuzz(num) {
     }
   }
 }
+// fizzBuzz(25);
