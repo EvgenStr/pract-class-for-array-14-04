@@ -34,7 +34,8 @@ class Student {
     return this._surname;
   }
   set isMale(newGender) {
-    if (typeof newGender !== "boolean") throw new TypeError();
+    if (typeof newGender !== "boolean")
+      throw new TypeError("isMale must be boolean type");
     this._isMale = newGender;
   }
   get isMale() {
@@ -47,11 +48,13 @@ class Student {
     return this._contacts;
   }
   set faculty(newFaculty) {
-    if (!newFaculty instanceof University) throw new Error();
+    if (!newFaculty instanceof University)
+      throw new Error("faculty must be instance of class University");
     this._faculty = newFaculty;
   }
   _validateString(value) {
-    if (typeof value !== "string") throw new TypeError();
+    if (typeof value !== "string")
+      throw new TypeError("name and surname must be string type");
   }
 }
 
@@ -61,14 +64,16 @@ class University {
     this.department = department;
   }
   set faculty(newFaculty) {
-    if (typeof newFaculty !== "string") throw new TypeError();
+    if (typeof newFaculty !== "string")
+      throw new TypeError("faculty must be string type");
     this._faculty = newFaculty;
   }
   get faculty() {
     return this._faculty;
   }
   set department(newDepartment) {
-    if (typeof newDepartment !== "string") throw new TypeError();
+    if (typeof newDepartment !== "string")
+      throw new TypeError("department must be string type");
     this._department = newDepartment;
   }
   get department() {
@@ -80,6 +85,9 @@ const UNIVERSITY = new University("Math", "Computer science");
 const std1 = new Student("John", "Doe", true, "4444", UNIVERSITY);
 function getStudentInfo(student) {
   console.log(Object.entries(student));
+  // console.log(JSON.stringify(student));
+  // console.log(student);
+  // console.log(student._faculty._faculty, student._faculty._department);
 }
 
 /* 3.1 Создать числовой массив и проинициализировать его из 25 элементов.
