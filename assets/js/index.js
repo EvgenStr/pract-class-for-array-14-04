@@ -92,10 +92,10 @@ function getStudentInfo(student) {
 // 3.4 Вывести индексы нулевых элементов (элемент равен нулю)
 // 3.5 Подсчитать количество нулевых элементов
 
-function initArrayIntRandom(amount) {
+function initArrayIntRandom(amount, minValue, maxValue ) {
   const result = [];
   for (let i = 0; i < amount; i++) {
-    result.push(getRandomInt(0, 5));
+    result.push(getRandomInt(minValue, maxValue));
   }
   return result;
 }
@@ -106,9 +106,9 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function getEvenIndex(array) {
-  for (let i = 0; i < array.length; i + 2) {
-    console.log(array[i]);
+function getEvenIndexElement(array) {
+  for (let i = 0; i < array.length; i += 2) {
+    console.log(array[i], `index: ${i}`);
   }
 }
 
@@ -126,7 +126,7 @@ function getZeroElems(array) {
   return { zeroIndex: result, zeroCount: result.length };
 }
 
-const arr = initArrayIntRandom(25);
+const arr = initArrayIntRandom(25, 0, 5);
 // 4 Создать классы:
 // - Книга (автор, название, год издания, издательство)
 // - Электронная версия книги (автор, название, год издания, издательство, формат, электронный номер)
