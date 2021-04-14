@@ -99,23 +99,37 @@ function initArrayIntRandom(amount, minValue, maxValue) {
   }
   return result;
 }
-
+/**
+ *
+ * @param {number} min
+ * @param {number} max
+ * @returns
+ */
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
+/**
+ *
+ * @param {array} array
+ */
 function getEvenIndexElement(array) {
   for (let i = 0; i < array.length; i += 2) {
     console.log(array[i], `index: ${i}`);
   }
 }
-
+/**
+ * @param {array} array
+ * @returns {array}
+ */
 function getEvenElements(array) {
   return array.filter((element) => element % 2 === 0);
 }
-
+/**
+ * @param {array} array
+ * @returns {object}
+ */
 function getZeroElements(array) {
   const result = [];
   for (let i = 0; i < array.length; i++) {
