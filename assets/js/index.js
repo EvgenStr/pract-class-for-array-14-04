@@ -84,6 +84,8 @@ class University {
 const UNIVERSITY = new University("Math", "Computer science");
 const std1 = new Student("John", "Doe", true, "4444", UNIVERSITY);
 function getStudentInfo(student) {
+  if (!student instanceof Student)
+      throw new Error("student must be instance of class Student");
   console.log(Object.entries(student));
   // console.log(JSON.stringify(student));
   // console.log(student);
