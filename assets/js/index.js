@@ -20,14 +20,14 @@ class Student {
     this.faculty = faculty;
   }
   set name(newName) {
-    this._validateString(newName);
+    this.#validateString(newName);
     this._name = newName;
   }
   get name() {
     return this._name;
   }
   set surname(newSurName) {
-    this._validateString(newSurName);
+    this.#validateString(newSurName);
     this._surname = newSurName;
   }
   get surname() {
@@ -52,7 +52,7 @@ class Student {
       throw new Error("faculty must be instance of class University");
     this._faculty = newFaculty;
   }
-  _validateString(value) {
+  #validateString(value) {
     if (typeof value !== "string")
       throw new TypeError("name and surname must be string type");
   }
@@ -87,7 +87,7 @@ function getStudentInfo(student) {
   if (!student instanceof Student)
       throw new Error("student must be instance of class Student");
   // console.log(Object.entries(student));
-  console.log(JSON.stringify(student,null,'\t'));
+  console.log( `%c Student:${JSON.stringify(student,null,'\t')}`,"color:green;font-size:14px;");
   // console.log(Object.values(std1));
   // console.log(student._faculty._faculty, student._faculty._department);
 }
@@ -159,14 +159,14 @@ class Book {
     this.publishingOffice = publishingOffice;
   }
   set author(value) {
-    this._validateString(value);
+    this.#validateString(value);
     this._author = value;
   }
   get author() {
     return this._author;
   }
   set title(value) {
-    this._validateString(value);
+    this.#validateString(value);
     this._title = value;
   }
   get title() {
@@ -180,13 +180,13 @@ class Book {
     return this._year;
   }
   set publishingOffice(value) {
-    this._validateString(value);
+    this.#validateString(value);
     this._publishingOffice = value;
   }
   get publishingOffice() {
     return this._publishingOffice;
   }
-  _validateString(value) {
+  #validateString(value) {
     if (typeof value !== "string") throw new TypeError();
   }
 }
