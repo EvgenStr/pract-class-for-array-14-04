@@ -92,7 +92,7 @@ function getStudentInfo(student) {
 // 3.4 Вывести индексы нулевых элементов (элемент равен нулю)
 // 3.5 Подсчитать количество нулевых элементов
 
-function initArrayIntRandom(amount, minValue, maxValue ) {
+function initArrayIntRandom(amount, minValue, maxValue) {
   const result = [];
   for (let i = 0; i < amount; i++) {
     result.push(getRandomInt(minValue, maxValue));
@@ -112,11 +112,11 @@ function getEvenIndexElement(array) {
   }
 }
 
-function getEvenElems(array) {
+function getEvenElements(array) {
   return array.filter((element) => element % 2 === 0);
 }
 
-function getZeroElems(array) {
+function getZeroElements(array) {
   const result = [];
   for (let i = 0; i < array.length; i++) {
     if (array[i] === 0) {
@@ -194,7 +194,14 @@ class EBook extends Book {
 }
 
 const paper = new Book("john", "eloquent javascript", 2019, "publish");
-const eBook = new EBook(  "john",  "eloquent javascript",  2019,  "publish",  "pdf",  2020);
+const eBook = new EBook(
+  "john",
+  "eloquent javascript",
+  2019,
+  "publish",
+  "pdf",
+  2020
+);
 
 // 5 Требуется написать функцию, выводящую в консоль числа от 1 до n, где n — это целое число, которая функция принимает в качестве параметра, с такими условиями:
 // вывод fizzbuzz вместо чисел, кратных как 3, так и 5.
