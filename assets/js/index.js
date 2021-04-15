@@ -35,7 +35,7 @@ class Student {
   }
   set isMale(newGender) {
     if (typeof newGender !== "boolean")
-      throw new TypeError("isMale must be boolean type");
+      throw new TypeError("isMale must be of boolean type");
     this._isMale = newGender;
   }
   get isMale() {
@@ -54,7 +54,7 @@ class Student {
   }
   #validateString(value) {
     if (typeof value !== "string")
-      throw new TypeError("name and surname must be string type");
+      throw new TypeError("name and surname must be of string type");
   }
 }
 
@@ -65,7 +65,7 @@ class University {
   }
   set faculty(newFaculty) {
     if (typeof newFaculty !== "string")
-      throw new TypeError("faculty must be string type");
+      throw new TypeError("faculty must be of string type");
     this._faculty = newFaculty;
   }
   get faculty() {
@@ -73,7 +73,7 @@ class University {
   }
   set department(newDepartment) {
     if (typeof newDepartment !== "string")
-      throw new TypeError("department must be string type");
+      throw new TypeError("department must be of string type");
     this._department = newDepartment;
   }
   get department() {
@@ -85,9 +85,9 @@ const UNIVERSITY = new University("Math", "Computer science");
 const std1 = new Student("John", "Doe", true, "4444", UNIVERSITY);
 function getStudentInfo(student) {
   if (!student instanceof Student)
-      throw new Error("student must be instance of class Student");
+    throw new Error("student must be instance of class Student");
   // console.log(Object.entries(student));
-  console.log( `%c Student:${JSON.stringify(student,null,'\t')}`,"color:green;font-size:14px;");
+  console.log(`%c Student:${JSON.stringify(student, null, '\t')}`, "font-size:14px;");
   // console.log(Object.values(std1));
   // console.log(student._faculty._faculty, student._faculty._department);
 }
@@ -173,7 +173,7 @@ class Book {
     return this._title;
   }
   set year(value) {
-    if (typeof value !== "number") throw new TypeError();
+    if (typeof value !== "number") throw new TypeError('year must be of number type');
     this._year = value;
   }
   get year() {
@@ -187,7 +187,7 @@ class Book {
     return this._publishingOffice;
   }
   #validateString(value) {
-    if (typeof value !== "string") throw new TypeError();
+    if (typeof value !== "string") throw new TypeError("author and title must be of string type");
   }
 }
 class EBook extends Book {
@@ -197,14 +197,14 @@ class EBook extends Book {
     this.isbn = isbn;
   }
   set format(value) {
-    if (typeof value !== "string") throw new TypeError();
+    if (typeof value !== "string") throw new TypeError("format must be of string type");
     this._format = value;
   }
   get format() {
     return this._format;
   }
   set isbn(value) {
-    if (typeof value !== "number") throw new TypeError();
+    if (typeof value !== "number") throw new TypeError('isbn must be of number type');
     this._isbn = value;
   }
   get isbn() {
@@ -213,14 +213,7 @@ class EBook extends Book {
 }
 
 const paper = new Book("john", "eloquent javascript", 2019, "publish");
-const eBook = new EBook(
-  "john",
-  "eloquent javascript",
-  2019,
-  "publish",
-  "pdf",
-  2020
-);
+const eBook = new EBook("john", "eloquent javascript", 2019, "publish", "pdf", 2020);
 
 /* 5 Требуется написать функцию, выводящую в консоль числа от 1 до n, где n — это целое число,
  которая функция принимает в качестве параметра, с такими условиями:
@@ -229,6 +222,7 @@ const eBook = new EBook(
  вывод buzz вместо чисел, кратных 5;*/
 
 function fizzBuzz(num) {
+  if (typeof num !== 'number' || num < 1) throw new Error('Please enter a number greater than 1');
   for (let i = 1; i <= num; i++) {
     if (i % 5 === 0 && i % 3 === 0) {
       console.log("fizzbuzz");
